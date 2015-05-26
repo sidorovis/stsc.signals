@@ -83,7 +83,7 @@
 		<dependency>
 			<groupId>stsc</groupId>
 			<artifactId>stsc.common</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.18-WEBINTERFACE</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
