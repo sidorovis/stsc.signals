@@ -35,6 +35,10 @@ public final class LimitSignalsSerie<SignalType extends SerieSignal> extends Sig
 
 	@Override
 	public SignalContainer<? extends SignalType> getSignal(Date date) {
+		final SignalContainer<? extends SignalType> result = signalMap.get(date);
+		if (result == null) {
+			return SignalContainer.empty(date);
+		}
 		return signalMap.get(date);
 	}
 
