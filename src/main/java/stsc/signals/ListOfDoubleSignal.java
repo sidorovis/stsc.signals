@@ -5,7 +5,7 @@ import java.util.List;
 
 import stsc.common.signals.SerieSignal;
 
-public class ListOfDoubleSignal extends SerieSignal {
+public final class ListOfDoubleSignal extends SerieSignal {
 
 	final private List<Double> values = new ArrayList<>();
 

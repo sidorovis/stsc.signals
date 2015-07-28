@@ -2,7 +2,7 @@ package stsc.signals;
 
 import stsc.common.signals.SerieSignal;
 
-public class DoubleSignal extends SerieSignal {
+public final class DoubleSignal extends SerieSignal {
 
 	final private double value;
 

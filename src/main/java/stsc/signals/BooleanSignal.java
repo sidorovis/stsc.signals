@@ -2,8 +2,7 @@ package stsc.signals;
 
 import stsc.common.signals.SerieSignal;
 
-
-public class BooleanSignal extends SerieSignal {
+public final class BooleanSignal extends SerieSignal {
 
 	final public Boolean value;
 

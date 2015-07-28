@@ -2,8 +2,7 @@ package stsc.signals;
 
 import stsc.common.signals.SerieSignal;
 
-
-public class IntegerSignal extends SerieSignal {
+public final class IntegerSignal extends SerieSignal {
 
 	final public Integer value;
 
