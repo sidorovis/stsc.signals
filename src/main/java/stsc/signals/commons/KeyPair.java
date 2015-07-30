@@ -62,4 +62,8 @@ public final class KeyPair {
 		return true;
 	}
 
+	public String toString() {
+		return left + "-" + right;
+	}
+
 }
