@@ -2,6 +2,10 @@ package stsc.signals;
 
 import stsc.common.signals.SerieSignal;
 
+/**
+ * {@link DoubleSignal} - the most widely used and common signal for all series.
+ * People always tried to describe world with double numbers.
+ */
 public final class DoubleSignal extends SerieSignal {
 
 	final private double value;
