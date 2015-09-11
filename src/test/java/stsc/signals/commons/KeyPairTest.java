@@ -23,4 +23,16 @@ public class KeyPairTest {
 		Assert.assertEquals("asd", new KeyPair("asd", "sdf").getLeft());
 		Assert.assertEquals("asd", new KeyPair("sdf", "asd").getLeft());
 	}
+
+	@Test
+	public void testKeyPairComparable() {
+		final KeyPair a = new KeyPair("asd", "sdf");
+		final KeyPair b = new KeyPair("asd", "sdf2");
+		Assert.assertEquals(-1, a.compareTo(b));
+		Assert.assertEquals(1, b.compareTo(a));
+		Assert.assertEquals(0, b.compareTo(new KeyPair("asd", "sdf2")));
+		Assert.assertTrue(0 < b.compareTo(new KeyPair("asd", "adf")));
+		Assert.assertTrue(0 < b.compareTo(new KeyPair("abf", "sdf2")));
+		Assert.assertTrue(0 > b.compareTo(new KeyPair("azf", "sdf2")));
+	}
 }

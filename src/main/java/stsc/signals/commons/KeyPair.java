@@ -7,7 +7,7 @@ package stsc.signals.commons;
  * Also it automatically sort left, right values at constructor. <br/>
  * I thought about ImmutablePair from Apache commons lang3.
  */
-public final class KeyPair {
+public final class KeyPair implements Comparable<KeyPair> {
 
 	private final String left;
 	private final String right;
@@ -64,6 +64,14 @@ public final class KeyPair {
 
 	public String toString() {
 		return left + "-" + right;
+	}
+
+	@Override
+	public int compareTo(final KeyPair compare) {
+		if (getLeft().compareTo(compare.getLeft()) == 0) {
+			return getRight().compareTo(compare.getRight());
+		}
+		return getLeft().compareTo(compare.getLeft());
 	}
 
 }
