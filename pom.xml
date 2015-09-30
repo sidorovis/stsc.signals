@@ -16,6 +16,10 @@
 
 	<repositories>
 		<repository>
+			<id>maven-central</id>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
 			<id>stsc-bom-repository</id>
 			<url>https://raw.github.com/sidorovis/stsc/stsc.bom/</url>
 		</repository>
@@ -74,7 +78,7 @@
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.12</version>
 				<configuration>
-					<message>#4 new verion ${project.version}  uploaded</message>
+					<message>#4 new verion ${project.version} uploaded</message>
 					<noJekyll>true</noJekyll>
 					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
 					<branch>refs/heads/stsc.signals</branch>
