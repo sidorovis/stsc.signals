@@ -10,6 +10,19 @@ import stsc.common.signals.SerieSignal;
 import stsc.common.signals.SignalContainer;
 import stsc.common.signals.SignalsSerie;
 
+/**
+ * This is limited serie of signals with default limit = 1. <br/>
+ * When algorithm add another signal to the serie this class automatically check
+ * amount of stored signals and if it break the limit delete the oldest stored
+ * signal (Stores Limit + 1 element !). <br/>
+ * {@link #getSignal(int)} by index is very not effective
+ * 
+ * Be careful with {@link #size()} method, it returns last stored signal + 1. (0
+ * in the very beginning).
+ * 
+ * @param <SignalType>
+ *            - type of stored signal.
+ */
 public final class LimitSignalsSerie<SignalType extends SerieSignal> extends SignalsSerie<SignalType> {
 
 	private final static int DEFAULT_LIMIT = 1;
@@ -56,8 +69,8 @@ public final class LimitSignalsSerie<SignalType extends SerieSignal> extends Sig
 		if (signal.getClass() == getSignalClass())
 			checkedAddSignal(date, signal);
 		else
-			throw new BadSignalException("bad signal type, expected(" + getSignalClass().getCanonicalName() + "), received("
-					+ signal.getClass().getCanonicalName() + ")");
+			throw new BadSignalException(
+					"bad signal type, expected(" + getSignalClass().getCanonicalName() + "), received(" + signal.getClass().getCanonicalName() + ")");
 	}
 
 	private synchronized void checkedAddSignal(Date date, SignalType signal) {

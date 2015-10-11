@@ -9,6 +9,18 @@ import stsc.common.signals.SerieSignal;
 import stsc.common.signals.SignalContainer;
 import stsc.common.signals.SignalsSerie;
 
+/**
+ * This signal serie stores all signals. Return all stored elements. <br/>
+ * Main problem: memory-eating. Use a lot of memory (because it store all
+ * signals till the end of simulation process). <br/>
+ * Please never add signals with same {@link Date}.
+ * 
+ * @param <SignalType>
+ *            - type of signal for Serie (should be inherited for
+ *            {@link SerieSignal}.
+ * 
+ * @mark thread safe
+ */
 public final class CommonSignalsSerie<SignalType extends SerieSignal> extends SignalsSerie<SignalType> {
 
 	private final ArrayList<SignalContainer<? extends SignalType>> signalList = new ArrayList<>();
@@ -33,8 +45,8 @@ public final class CommonSignalsSerie<SignalType extends SerieSignal> extends Si
 		if (signal.getClass() == getSignalClass())
 			checkedAddSignal(date, signal);
 		else
-			throw new BadSignalException("bad signal type, expected(" + getSignalClass().getCanonicalName() + "), received("
-					+ signal.getClass().getCanonicalName() + ")");
+			throw new BadSignalException(
+					"bad signal type, expected(" + getSignalClass().getCanonicalName() + "), received(" + signal.getClass().getCanonicalName() + ")");
 	}
 
 	private synchronized void checkedAddSignal(Date date, SignalType signal) {
