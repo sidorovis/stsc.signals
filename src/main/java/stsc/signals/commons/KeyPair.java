@@ -31,6 +31,10 @@ public final class KeyPair implements Comparable<KeyPair> {
 		return right;
 	}
 
+	public boolean contain(final String value) {
+		return (left.equals(value) || right.equals(value));
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

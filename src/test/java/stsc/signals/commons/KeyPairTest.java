@@ -35,4 +35,12 @@ public class KeyPairTest {
 		Assert.assertTrue(0 < b.compareTo(new KeyPair("abf", "sdf2")));
 		Assert.assertTrue(0 > b.compareTo(new KeyPair("azf", "sdf2")));
 	}
+
+	@Test
+	public void testKeyPairContains() {
+		final KeyPair a = new KeyPair("asd", "xcvt");
+		Assert.assertTrue(a.contain("asd"));
+		Assert.assertTrue(a.contain("xcvt"));
+		Assert.assertFalse(a.contain("sdf"));
+	}
 }
